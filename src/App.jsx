@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css"; // Import the CSS file
+import DemogorgonModel from "./DemogorgonModel";
+import VecnaModel from "./VecnaModel";
 
 export default function App() {
   const [showHome, setShowHome] = useState(false);
@@ -228,8 +230,11 @@ export default function App() {
           {/* ================= SCENE 2: CHAPTERS ================= */}
           <section className="chapters-section">
             <div className="container">
-              <div className="grid-2-cols" style={{ alignItems: 'center' }}>
-                {/* Left Side */}
+              <div
+                className="grid-2-cols"
+                style={{ alignItems: "center", gap: "3rem" }}
+              >
+                {/* LEFT: Chapters Text */}
                 <div className="space-y-8">
                   <div>
                     <h2 className="font-bebas chapters-title">
@@ -251,26 +256,22 @@ export default function App() {
                       A monster watching from the dark.
                     </p>
                   </div>
-                </div>
 
-                {/* Right Side */}
-                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }} className="space-y-6">
                   <p className="font-courier chapters-description">
                     Every chapter pulls you deeper into the Upside Down.
                     <br /><br />
                     Where shadows breathe and nightmares become real.
                   </p>
-                  
-                  {/* Decorative Element */}
-                  <div className="decorative-lines">
-                    {[...Array(5)].map((_, i) => (
-                      <div key={i} className="decorative-line" style={{ width: '3rem' }} />
-                    ))}
-                  </div>
+                </div>
+
+                {/* RIGHT: MODEL */}
+                <div className="chapters-model-wrapper">
+                  <DemogorgonModel />
                 </div>
               </div>
             </div>
           </section>
+
 
           {/* ================= SCENE 3: GATE ================= */}
           <section className="gate-section">
@@ -412,6 +413,8 @@ export default function App() {
               ))}
             </div>
           </section>
+         
+
 
           {/* ================= SCENE 5: COLLECTION ================= */}
           <section className="collection-section">
