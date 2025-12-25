@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css"; // Import the CSS file
-import DemogorgonModel from "./DemogorgonModel";
-import VecnaModel from "./VecnaModel";
+import DemogorgonModel from "./components/DemogorgonModel";
+import VecnaModel from "./components/VecnaModel";
 
 export default function App() {
   const [showHome, setShowHome] = useState(false);
