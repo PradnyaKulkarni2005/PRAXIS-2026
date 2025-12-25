@@ -156,8 +156,7 @@ body {
 
 /* Text Stroke Effect */
 .text-stroke {
-  -webkit-text-stroke: 2px rgba(220, 38, 38, 0.3);
-  text-stroke: 2px rgba(220, 38, 38, 0.3);
+  -webkit-text-stroke: 2px rgba(255, 0, 0, 1)
 }
 
 /* Glass Morphism Effect */
@@ -359,7 +358,6 @@ body {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(to bottom right, #000, #18181b, #000);
   padding: 5rem 0;
 }
 
@@ -396,7 +394,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.05em;
   line-height: 1;
-  color: #fff;
+  color: rgba(120, 0, 0, 1);
 }
 
 .glitch-lines {
@@ -422,13 +420,13 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  margin-top: 2rem;
+  margin-top: 20rem;
 }
 
 .stat-card {
   text-align: center;
   padding: 1rem;
-  border: 1px solid rgba(220, 38, 38, 0.3);
+  border: 1px solid rgba(120, 0, 0, 1);
   border-radius: 0.25rem;
 }
 

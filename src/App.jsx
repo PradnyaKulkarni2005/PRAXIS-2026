@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./App.css"; // Import the CSS file
+import "./App.css";
 import DemogorgonModel from "./components/DemogorgonModel";
-import VecnaModel from "./components/VecnaModel";
+import Hero from "./components/Hero";
 
 export default function App() {
   const [showHome, setShowHome] = useState(false);
@@ -177,7 +177,6 @@ export default function App() {
       {/* ================= HOME ================= */}
       {showHome && (
         <div>
-          {/* Particles */}
           <canvas ref={canvasRef} className="canvas-bg" />
 
           {/* ================= SCENE 1: HERO ================= */}
@@ -209,7 +208,7 @@ export default function App() {
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', marginTop: '1.5rem' }}>
                 <div style={{ height: '1px', width: '5rem', background: 'linear-gradient(to right, transparent, #dc2626)' }} />
                 <h2 className="font-courier hero-subtitle animate-flicker">
-                  2025
+                  2026
                 </h2>
                 <div style={{ height: '1px', width: '5rem', background: 'linear-gradient(to left, transparent, #dc2626)' }} />
               </div>
@@ -335,6 +334,9 @@ export default function App() {
             </div>
           </section>
 
+          {/* SCENE - STRANGER THINGS HERO */}
+          <Hero />
+
           {/* ================= SCENE 4: VILLAINS ================= */}
           <section className="villains-section">
             <div className="villains-header">
@@ -414,8 +416,6 @@ export default function App() {
             </div>
           </section>
          
-
-
           {/* ================= SCENE 5: COLLECTION ================= */}
           <section className="collection-section">
             {/* Background Pattern */}
