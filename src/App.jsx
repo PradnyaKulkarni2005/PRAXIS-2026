@@ -15,56 +15,84 @@ export default function App() {
       name: "Demogorgon",
       alias: "The Monster",
       season: "Season 1",
-      image: "https://wallpapers.com/images/high/demogorgon-stranger-things-8z16phmzlp6bsj2g.webp",
-      description: "A predatory humanoid creature from the Upside Down. The first supernatural threat faced by the kids of Hawkins.",
+      image:
+        "https://wallpapers.com/images/high/demogorgon-stranger-things-8z16phmzlp6bsj2g.webp",
+      description:
+        "A predatory humanoid creature from the Upside Down. The first supernatural threat faced by the kids of Hawkins.",
       threatLevel: 4,
       victims: 6,
       episodes: 8,
-      abilities: ["Teleportation", "Enhanced Strength", "Tracking"]
+      abilities: ["Teleportation", "Enhanced Strength", "Tracking"],
     },
     {
       id: 2,
       name: "Mind Flayer",
       alias: "The Shadow Monster",
       season: "Season 2",
-      image: "https://wallpapers.com/images/high/red-mind-flayer-stranger-things-phone-ek4f5jjtr9ngkdek.webp",
-      description: "A massive, spider-like entity that serves as the hive mind of the Upside Down. Commands an army of possessed hosts.",
+      image:
+        "https://wallpapers.com/images/high/red-mind-flayer-stranger-things-phone-ek4f5jjtr9ngkdek.webp",
+      description:
+        "A massive, spider-like entity that serves as the hive mind of the Upside Down. Commands an army of possessed hosts.",
       threatLevel: 5,
       victims: 15,
       episodes: 12,
-      abilities: ["Mind Control", "Possession", "Hive Mind"]
+      abilities: ["Mind Control", "Possession", "Hive Mind"],
     },
     {
       id: 3,
       name: "Vecna",
       alias: "One / Henry Creel",
       season: "Season 4",
-      image: "https://images.thedirect.com/media/article_full/vecna-stranger.jpg?imgeng=/cmpr_60/w_1280",
-      description: "The first test subject and true master of the Upside Down. Targets victims through psychological trauma and curses.",
+      image:
+        "https://images.thedirect.com/media/article_full/vecna-stranger.jpg?imgeng=/cmpr_60/w_1280",
+      description:
+        "The first test subject and true master of the Upside Down. Targets victims through psychological trauma and curses.",
       threatLevel: 5,
       victims: 4,
       episodes: 9,
-      abilities: ["Psychic Powers", "Mind Manipulation", "Reality Warping"]
+      abilities: ["Psychic Powers", "Mind Manipulation", "Reality Warping"],
     },
     {
       id: 4,
       name: "Demodogs",
       alias: "Dart's Family",
       season: "Season 2",
-      image: "https://cdna.artstation.com/p/assets/images/images/024/122/970/large/limkuk-demodogneutral.jpg?1581390593",
-      description: "Adolescent Demogorgons that hunt in packs. Dart was raised by Dustin before joining the swarm.",
+      image:
+        "https://cdna.artstation.com/p/assets/images/images/024/122/970/large/limkuk-demodogneutral.jpg?1581390593",
+      description:
+        "Adolescent Demogorgons that hunt in packs. Dart was raised by Dustin before joining the swarm.",
       threatLevel: 3,
       victims: 12,
       episodes: 5,
-      abilities: ["Pack Hunting", "Burrowing", "Rapid Growth"]
-    }
+      abilities: ["Pack Hunting", "Burrowing", "Rapid Growth"],
+    },
   ];
 
   /* ================= SCROLL TRACKING ================= */
+
+  const bgRef = useRef(null);
+
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    let latestScrollY = 0;
+    let ticking = false;
+
+    const onScroll = () => {
+      latestScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (bgRef.current) {
+            bgRef.current.style.transform = `translate3d(0, ${
+              latestScrollY * 0.5
+            }px, 0)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   /* ================= INTRO VIDEO ================= */
@@ -128,18 +156,18 @@ export default function App() {
 
     const loop = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => {
+      particles.forEach((p) => {
         p.x += p.vx;
         p.y += p.vy;
         p.pulse += p.pulseSpeed;
-        
+
         if (p.x < 0) p.x = canvas.width;
         if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height;
         if (p.y > canvas.height) p.y = 0;
 
         const pulseAlpha = p.a * (0.5 + 0.5 * Math.sin(p.pulse));
-        
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(220,38,38,${pulseAlpha})`;
@@ -180,13 +208,7 @@ export default function App() {
 
           {/* ================= SCENE 1: HERO ================= */}
           <section className="hero-section">
-            {/* Background Image with Parallax */}
-            <div style={{ 
-              position: 'absolute',
-              inset: 0,
-              transform: `translateY(${scrollY * 0.5}px)`,
-              transition: 'transform 100ms'
-            }}>
+            <div ref={bgRef} className="hero-bg-wrapper">
               <img
                 src="https://wallpapers.com/images/high/cute-stranger-things-young-squad-t4oeh47ph4opsu0v.webp"
                 alt="Background"
@@ -199,19 +221,46 @@ export default function App() {
             <div className="hero-overlay-red" />
 
             {/* Title */}
-            <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '0 1rem' }} 
-                 className="animate-fade-in-up">
-              <h1 className="font-bebas hero-title animate-glow">
-                PRAXIS
-              </h1>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', marginTop: '1.5rem' }}>
-                <div style={{ height: '1px', width: '5rem', background: 'linear-gradient(to right, transparent, #dc2626)' }} />
+            <div
+              style={{
+                position: "relative",
+                zIndex: 10,
+                textAlign: "center",
+                padding: "0 1rem",
+              }}
+              className="animate-fade-in-up"
+            >
+              <h1 className="font-bebas hero-title animate-glow">PRAXIS</h1>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "2rem",
+                  marginTop: "1.5rem",
+                }}
+              >
+                <div
+                  style={{
+                    height: "1px",
+                    width: "5rem",
+                    background:
+                      "linear-gradient(to right, transparent, #dc2626)",
+                  }}
+                />
                 <h2 className="font-courier hero-subtitle animate-flicker">
                   2026
                 </h2>
-                <div style={{ height: '1px', width: '5rem', background: 'linear-gradient(to left, transparent, #dc2626)' }} />
+                <div
+                  style={{
+                    height: "1px",
+                    width: "5rem",
+                    background:
+                      "linear-gradient(to left, transparent, #dc2626)",
+                  }}
+                />
               </div>
-              
+
               <p className="font-courier hero-tagline">
                 WELCOME TO THE UPSIDE DOWN
               </p>
@@ -232,37 +281,32 @@ export default function App() {
                 className="grid-2-cols"
                 style={{ alignItems: "center", gap: "3rem" }}
               >
-                {/* LEFT: Chapters Text */}
                 <div className="space-y-8">
                   <div>
-                    <h2 className="font-bebas chapters-title">
-                      CHAPTERS
-                    </h2>
+                    <h2 className="font-bebas chapters-title">CHAPTERS</h2>
                   </div>
 
                   <div className="space-y-4">
                     <p className="chapter-item font-courier">
-                      <span className="chapter-arrow">▸</span>
-                      A disappearance.
+                      <span className="chapter-arrow">▸</span>A disappearance.
                     </p>
                     <p className="chapter-item font-courier">
-                      <span className="chapter-arrow">▸</span>
-                      A curse.
+                      <span className="chapter-arrow">▸</span>A curse.
                     </p>
                     <p className="chapter-item font-courier">
-                      <span className="chapter-arrow">▸</span>
-                      A monster watching from the dark.
+                      <span className="chapter-arrow">▸</span>A monster watching
+                      from the dark.
                     </p>
                   </div>
 
                   <p className="font-courier chapters-description">
                     Every chapter pulls you deeper into the Upside Down.
-                    <br /><br />
+                    <br />
+                    <br />
                     Where shadows breathe and nightmares become real.
                   </p>
                 </div>
 
-                {/* RIGHT: MODEL */}
                 <div className="chapters-model-wrapper">
                   <DemogorgonModel />
                 </div>
@@ -270,73 +314,10 @@ export default function App() {
             </div>
           </section>
 
-
           {/* ================= SCENE 3: GATE ================= */}
-          <section className="gate-section">
-            {/* Background Effects */}
-            <div className="gate-bg-effect">
-              <div className="gate-glow-left" />
-              <div className="gate-glow-right" />
-            </div>
-
-            <div className="container">
-              <div className="grid-2-cols" style={{ alignItems: 'center' }}>
-                {/* Left: Title */}
-                <div>
-                  <h2 className="font-bebas gate-title text-stroke">
-                    THE
-                    <br />
-                    GATE
-                  </h2>
-                  
-                  {/* Glitch Lines */}
-                  <div className="glitch-lines">
-                    <div className="glitch-line" style={{ width: '60%' }} />
-                    <div className="glitch-line" style={{ width: '80%' }} />
-                    <div className="glitch-line" style={{ width: '40%' }} />
-                  </div>
-                </div>
-
-                {/* Right: Content */}
-                <div className="space-y-8">
-                  <div className="glass-effect space-y-6" style={{ padding: '2rem', borderRadius: '0.5rem' }}>
-                    <p className="font-courier gate-description">
-                      Two worlds collide.
-                      <br />
-                      The gate is open.
-                      <br />
-                      There is no turning back.
-                    </p>
-                    
-                    <div style={{ paddingTop: '1rem' }}>
-                      <button className="btn font-bebas">
-                        <span>ENTER</span>
-                      </button>
-                    </div>
-                  </div>
-                  
-                  {/* Stats */}
-                  <div className="stats-grid">
-                    {[
-                      { num: '04', label: 'SEASONS' },
-                      { num: '34', label: 'EPISODES' },
-                      { num: '∞', label: 'MYSTERIES' }
-                    ].map((stat, i) => (
-                      <div key={i} className="stat-card">
-                        <div className="font-bebas stat-number">{stat.num}</div>
-                        <div className="font-courier stat-label">{stat.label}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           <section className="hero">
             <Hero />
           </section>
-
 
           {/* ================= SCENE 4: VILLAINS ================= */}
           <section className="villains-section">
@@ -351,8 +332,8 @@ export default function App() {
 
             <div className="villains-grid">
               {villains.map((villain, index) => (
-                <div 
-                  key={villain.id} 
+                <div
+                  key={villain.id}
                   className="villain-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -366,24 +347,32 @@ export default function App() {
                       {villain.season}
                     </span>
                     <div className="villain-overlay">
-                      <h3 className="font-bebas villain-name">{villain.name}</h3>
+                      <h3 className="font-bebas villain-name">
+                        {villain.name}
+                      </h3>
                     </div>
                   </div>
 
                   <div className="villain-content">
-                    <p className="font-courier villain-alias">"{villain.alias}"</p>
-                    
+                    <p className="font-courier villain-alias">
+                      "{villain.alias}"
+                    </p>
+
                     <p className="font-courier villain-description">
                       {villain.description}
                     </p>
 
                     <div className="villain-threat-level">
-                      <span className="font-courier threat-label">Threat Level:</span>
+                      <span className="font-courier threat-label">
+                        Threat Level:
+                      </span>
                       <div className="threat-dots">
                         {[...Array(5)].map((_, i) => (
-                          <div 
-                            key={i} 
-                            className={`threat-dot ${i < villain.threatLevel ? 'active' : ''}`}
+                          <div
+                            key={i}
+                            className={`threat-dot ${
+                              i < villain.threatLevel ? "active" : ""
+                            }`}
                           />
                         ))}
                       </div>
@@ -399,15 +388,21 @@ export default function App() {
 
                     <div className="villain-stats">
                       <div className="villain-stat">
-                        <div className="stat-value font-bebas">{villain.victims}</div>
+                        <div className="stat-value font-bebas">
+                          {villain.victims}
+                        </div>
                         <div className="stat-name font-courier">Victims</div>
                       </div>
                       <div className="villain-stat">
-                        <div className="stat-value font-bebas">{villain.episodes}</div>
+                        <div className="stat-value font-bebas">
+                          {villain.episodes}
+                        </div>
                         <div className="stat-name font-courier">Episodes</div>
                       </div>
                       <div className="villain-stat">
-                        <div className="stat-value font-bebas">{villain.threatLevel}/5</div>
+                        <div className="stat-value font-bebas">
+                          {villain.threatLevel}/5
+                        </div>
                         <div className="stat-name font-courier">Threat</div>
                       </div>
                     </div>
@@ -416,30 +411,35 @@ export default function App() {
               ))}
             </div>
           </section>
-         
+
           {/* ================= SCENE 5: COLLECTION ================= */}
           <section className="collection-section">
-            {/* Background Pattern */}
             <div className="collection-bg-pattern" />
 
-            <div style={{ textAlign: 'center', maxWidth: '64rem', padding: '0 1.5rem', position: 'relative', zIndex: 10 }} className="space-y-8">
-              {/* Title */}
-              <div style={{ position: 'relative', display: 'inline-block' }}>
-                <h2 className="font-bebas collection-title">
-                  COLLECTION
-                </h2>
+            <div
+              style={{
+                textAlign: "center",
+                maxWidth: "64rem",
+                padding: "0 1.5rem",
+                position: "relative",
+                zIndex: 10,
+              }}
+              className="space-y-8"
+            >
+              <div style={{ position: "relative", display: "inline-block" }}>
+                <h2 className="font-bebas collection-title">COLLECTION</h2>
               </div>
 
-              {/* Content */}
               <div className="glass-effect collection-content">
                 <p className="font-courier collection-text">
                   <span className="block">Moments.</span>
                   <span className="block">Episodes.</span>
-                  <span className="block collection-highlight">Memories that refuse to die.</span>
+                  <span className="block collection-highlight">
+                    Memories that refuse to die.
+                  </span>
                 </p>
               </div>
 
-              {/* Grid Pattern */}
               <div className="collection-grid">
                 {[...Array(16)].map((_, i) => (
                   <div key={i} className="grid-item" />
@@ -451,14 +451,18 @@ export default function App() {
           {/* ================= FOOTER ================= */}
           <footer className="footer">
             <div className="footer-content">
-              <p className="font-courier footer-copyright">
-                © 2025 RYUSANDJR
-              </p>
-              
+              <p className="font-courier footer-copyright">© 2025 RYUSANDJR</p>
+
               <nav className="footer-nav font-courier">
-                <a href="#" className="footer-link">ABOUT</a>
-                <a href="#" className="footer-link">EPISODES</a>
-                <a href="#" className="footer-link">CONTACT</a>
+                <a href="#" className="footer-link">
+                  ABOUT
+                </a>
+                <a href="#" className="footer-link">
+                  EPISODES
+                </a>
+                <a href="#" className="footer-link">
+                  CONTACT
+                </a>
               </nav>
             </div>
           </footer>
