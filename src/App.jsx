@@ -9,7 +9,6 @@ export default function App() {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
-  // Villain Characters Data
   const villains = [
     {
       id: 1,
@@ -334,8 +333,10 @@ export default function App() {
             </div>
           </section>
 
-          {/* SCENE - STRANGER THINGS HERO */}
-          <Hero />
+          <section className="hero">
+            <Hero />
+          </section>
+
 
           {/* ================= SCENE 4: VILLAINS ================= */}
           <section className="villains-section">
