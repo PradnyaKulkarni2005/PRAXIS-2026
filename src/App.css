@@ -251,6 +251,36 @@ body {
   color: #9ca3af;
 }
 
+.flip-wrapper {
+  display: inline-block;
+}
+
+.flip-title {
+  pointer-events: none;
+  display: inline-block;
+
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.flip-wrapper:hover .flip-title {
+  transform: rotateX(180deg);
+  text-shadow:
+    0 0 12px rgba(220, 38, 38, 0.6),
+    0 0 28px rgba(220, 38, 38, 0.4);
+
+}
+.flip-text {
+  pointer-events: none;
+  display: inline-block;
+
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+.flip-wrapper:hover .flip-text{
+  transform: rotateX(180deg);
+} 
+
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;

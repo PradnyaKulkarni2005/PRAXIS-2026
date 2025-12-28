@@ -216,11 +216,9 @@ export default function App() {
               />
             </div>
 
-            {/* Overlays */}
             <div className="hero-overlay-dark" />
             <div className="hero-overlay-red" />
 
-            {/* Title */}
             <div
               style={{
                 position: "relative",
@@ -230,7 +228,12 @@ export default function App() {
               }}
               className="animate-fade-in-up"
             >
-              <h1 className="font-bebas hero-title animate-glow">PRAXIS</h1>
+              <div className="flip-wrapper">
+                <h1 className="font-bebas hero-title animate-glow flip-title">
+                  PRAXIS
+                </h1>
+              </div>
+
               <div
                 style={{
                   display: "flex",
@@ -248,9 +251,11 @@ export default function App() {
                       "linear-gradient(to right, transparent, #dc2626)",
                   }}
                 />
-                <h2 className="font-courier hero-subtitle animate-flicker">
-                  2026
-                </h2>
+                <div className="flip-wrapper">
+                  <h2 className="font-courier hero-subtitle animate-flicker flip-text">
+                    2026
+                  </h2>
+                </div>
                 <div
                   style={{
                     height: "1px",
@@ -261,12 +266,13 @@ export default function App() {
                 />
               </div>
 
-              <p className="font-courier hero-tagline">
-                WELCOME TO THE UPSIDE DOWN
-              </p>
+              <div className="flip-wrapper">
+                <p className="font-courier hero-tagline flip-text">
+                  WELCOME TO THE UPSIDE DOWN
+                </p>
+              </div>
             </div>
 
-            {/* Scroll Indicator */}
             <div className="scroll-indicator animate-bounce-custom">
               <div className="scroll-mouse">
                 <div className="scroll-wheel animate-pulse" />
@@ -286,24 +292,32 @@ export default function App() {
                     <h2 className="font-bebas chapters-title">CHAPTERS</h2>
                   </div>
 
-                  <div className="space-y-4">
-                    <p className="chapter-item font-courier">
+                  <div className="space-y-4 flip-wrapper">
+                    <p className="chapter-item font-courier flip-text">
                       <span className="chapter-arrow">▸</span>A disappearance.
                     </p>
-                    <p className="chapter-item font-courier">
+                    <p className="chapter-item font-courier flip-text">
                       <span className="chapter-arrow">▸</span>A curse.
                     </p>
-                    <p className="chapter-item font-courier">
+                    <p className="chapter-item font-courier flip-text">
                       <span className="chapter-arrow">▸</span>A monster watching
                       from the dark.
                     </p>
                   </div>
 
                   <p className="font-courier chapters-description">
-                    Every chapter pulls you deeper into the Upside Down.
+                    <div className="flip-wrapper">
+                      <p className="flip-text">
+                        Every chapter pulls you deeper into the Upside Down.
+                      </p>
+                    </div>
                     <br />
                     <br />
-                    Where shadows breathe and nightmares become real.
+                    <div className="flip-wrapper">
+                      <p className="flip-text">
+                        Where shadows breathe and nightmares become real.
+                      </p>
+                    </div>
                   </p>
                 </div>
 
@@ -451,19 +465,7 @@ export default function App() {
           {/* ================= FOOTER ================= */}
           <footer className="footer">
             <div className="footer-content">
-              <p className="font-courier footer-copyright">© 2025 RYUSANDJR</p>
-
-              <nav className="footer-nav font-courier">
-                <a href="#" className="footer-link">
-                  ABOUT
-                </a>
-                <a href="#" className="footer-link">
-                  EPISODES
-                </a>
-                <a href="#" className="footer-link">
-                  CONTACT
-                </a>
-              </nav>
+              <p className="font-courier footer-copyright">©2026pccoe</p>
             </div>
           </footer>
         </div>
