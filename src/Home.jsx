@@ -3,7 +3,7 @@ import "./Home.css";
 import DemogorgonModel from "./components/DemogorgonModel";
 import Hero from "./components/Hero";
 
-export default function App() {
+export default function Home() {
   const [showHome, setShowHome] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const videoRef = useRef(null);
