@@ -5,10 +5,8 @@ import "./Mindscape.css";
 export default function Mindscape() {
   const navigate = useNavigate();
   const [showIntro, setShowIntro] = useState(true);
-  const cursorRef = useRef(null);
   const iframeRef = useRef(null);
 
-  // Handle Vimeo API for dynamic timing and error handling (now fixed to 2s after play)
   useEffect(() => {
     if (!showIntro) return;
 
@@ -16,7 +14,6 @@ export default function Mindscape() {
     let fallbackTimeout;
 
     const handleMessage = (event) => {
-      // Security: Only accept messages from Vimeo
       if (event.origin !== "https://player.vimeo.com") return;
 
       const data =
@@ -55,59 +52,6 @@ export default function Mindscape() {
       window.removeEventListener("message", handleMessage);
       clearTimeout(playTimeout);
       clearTimeout(fallbackTimeout);
-    };
-  }, [showIntro]);
-
-  // Custom cursor effect (unchanged)
-  useEffect(() => {
-    if (showIntro) return;
-
-    const cursor = document.createElement("div");
-    cursor.className = "custom-cursor";
-    document.body.appendChild(cursor);
-    cursorRef.current = cursor;
-
-    const moveCursor = (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
-
-    const addHoverEffect = () => {
-      cursor.classList.add("hover");
-    };
-
-    const removeHoverEffect = () => {
-      cursor.classList.remove("hover");
-    };
-
-    const addClickEffect = () => {
-      cursor.classList.add("click");
-      setTimeout(() => cursor.classList.remove("click"), 300);
-    };
-
-    // Track mouse movement
-    document.addEventListener("mousemove", moveCursor);
-    document.addEventListener("mousedown", addClickEffect);
-
-    // Add hover effects to interactive elements
-    const interactiveElements = document.querySelectorAll(
-      "button, .round-card, a"
-    );
-    interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", addHoverEffect);
-      el.addEventListener("mouseleave", removeHoverEffect);
-    });
-
-    return () => {
-      document.removeEventListener("mousemove", moveCursor);
-      document.removeEventListener("mousedown", addClickEffect);
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", addHoverEffect);
-        el.removeEventListener("mouseleave", removeHoverEffect);
-      });
-      if (cursor && cursor.parentNode) {
-        cursor.parentNode.removeChild(cursor);
-      }
     };
   }, [showIntro]);
 
@@ -175,27 +119,29 @@ export default function Mindscape() {
             </p>
           </section>
 
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSc945CLXmaZWr6xltS0YlgsYtMwYRDPO3t_k3KSBUo2k1qwqg/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="enter-btn font-courier">
-              ENTER THE MINDSCAPE (PCCOE students link)
-            </button>
-          </a>
+          <div className="register">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc945CLXmaZWr6xltS0YlgsYtMwYRDPO3t_k3KSBUo2k1qwqg/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="enter-btn font-courier">
+                Click to register (PCCOE students link)
+              </button>
+            </a>
 
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSe7bHXuFs_mUkYmBht-8osTHbQx5eagh6IEK5e-5jX6-mfi_A/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button className="enter-btn font-courier">
-              ENTER THE MINDSCAPE (Non PCCOE students link)
-            </button>
-          </a>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe7bHXuFs_mUkYmBht-8osTHbQx5eagh6IEK5e-5jX6-mfi_A/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="enter-btn font-courier">
+                (Non PCCOE students link)
+              </button>
+            </a>
+          </div>
 
-          <a href="/mindscapeRulebook.pdf" download>
+          <a href="/mindscapeRulebook.pdf" download className="download-btn" >
             <button className="enter-btn font-courier">
               Download Rulebook
             </button>
