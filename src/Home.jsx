@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Home.css";
 import DemogorgonModel from "./components/DemogorgonModel";
 import Hero from "./components/Hero";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const [showHome, setShowHome] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const navigate = useNavigate();
 
   const villains = [
     {
@@ -79,6 +81,7 @@ export default function Home() {
       victims: 12,
       episodes: 5,
       abilities: ["Pack Hunting", "Burrowing", "Rapid Growth"],
+      redirect: "/mindscape",
     },
   ];
 
@@ -364,6 +367,11 @@ export default function Home() {
                   key={villain.id}
                   className="villain-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
+                  onClick={() => {
+                    if (villain.id === 5) {
+                      navigate("/mindscape");
+                    }
+                  }}
                 >
                   <div className="villain-image-container">
                     <img
