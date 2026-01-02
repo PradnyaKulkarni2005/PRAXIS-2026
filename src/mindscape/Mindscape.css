@@ -1,3 +1,4 @@
+
 .hero-title {
   font-size: clamp(5rem, 2vw, 10rem);
   letter-spacing: 0.3em;
@@ -6,10 +7,13 @@
 }
 .mindscape {
   min-height: 100vh;
-  background: radial-gradient(circle at top, #1a0000, #000);
   color: #eee;
   padding: 3rem;
+  background-image: url('./vecna-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
+
 .mindscape-header {
   text-align: center;
   margin-top: 2rem;
@@ -71,18 +75,34 @@
 
 .enter-btn {
   display: block;
-  margin: 4rem auto;
-  padding: 1rem 2.5rem;
+  padding: 0.5rem 0.5rem;
   background: #b11226;
   color: white;
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 0 6px red;
+  
+}
+a{
+    text-decoration: none;
 }
 
 .enter-btn:hover {
   background: darkred;
+}
+.register{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+    padding-bottom: 10px;
+}
+.download-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 /* INTRO OVERLAY */
