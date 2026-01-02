@@ -70,13 +70,13 @@ export default function Home() {
     },
     {
       id: 5,
-      name: "Demodogs",
-      alias: "Dart's Family",
+      name: "MINDSCAPE",
+      alias: "MLSC presents",
       season: "Season 5",
       image:
         "https://cdna.artstation.com/p/assets/images/images/024/122/970/large/limkuk-demodogneutral.jpg?1581390593",
       description:
-        "Adolescent Demogorgons that hunt in packs. Dart was raised by Dustin before joining the swarm.",
+        "Mindscape is a ruthless four-round gauntlet. Survive the elimination, hack the glitch, and crack the code to claim the ultimate title.",
       threatLevel: 3,
       victims: 12,
       episodes: 5,

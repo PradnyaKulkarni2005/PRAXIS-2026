@@ -103,7 +103,10 @@ a{
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    color: #b11226;
+    font-size: 1.2rem;
 }
+
 
 /* INTRO OVERLAY */
 .intro-overlay {
