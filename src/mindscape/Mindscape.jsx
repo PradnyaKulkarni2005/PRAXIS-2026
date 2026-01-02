@@ -141,10 +141,8 @@ export default function Mindscape() {
             </a>
           </div>
 
-          <a href="/mindscapeRulebook.pdf" download className="download-btn" >
-            <button className="enter-btn font-courier">
+          <a href="/mindscapeRulebook.pdf" download className="download-btn font-courier" >
               Download Rulebook
-            </button>
           </a>
         </div>
       )}
