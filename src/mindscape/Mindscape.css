@@ -1,0 +1,204 @@
+.hero-title {
+  font-size: clamp(5rem, 2vw, 10rem);
+  letter-spacing: 0.3em;
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.mindscape {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1a0000, #000);
+  color: #eee;
+  padding: 3rem;
+}
+.mindscape-header {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.font-bebas {
+  font-family: 'Bebas Neue', 'Impact', 'Arial Black', sans-serif !important;
+  font-weight: 700;
+}
+.font-courier {
+  font-family: 'Courier Prime', 'Courier New', monospace !important;
+}
+.description {
+  font-size: clamp(1rem, 1vw, 1rem);
+  color: #9ca3af;
+}
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+
+.glitch {
+  font-size: 4rem;
+  letter-spacing: 4px;
+  color: #b11226;
+  text-shadow: 0 0 15px red;
+}
+
+.about, .rounds, .warning {
+  max-width: 800px;
+  margin: 3rem auto;
+}
+
+.round-card {
+  border: 1px solid #400;
+  padding: 1.2rem;
+  margin: 1rem 0;
+  background: rgba(80, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.round-card:hover {
+  background: rgba(120, 0, 0, 0.25);
+  transform: translateX(5px);
+}
+
+.warning {
+  border-left: 4px solid red;
+  padding-left: 1rem;
+}
+
+.enter-btn {
+  display: block;
+  margin: 4rem auto;
+  padding: 1rem 2.5rem;
+  background: #b11226;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 6px red;
+}
+
+.enter-btn:hover {
+  background: darkred;
+}
+
+/* INTRO OVERLAY */
+.intro-overlay {
+  position: fixed;
+  inset: 0;              /* top:0 right:0 bottom:0 left:0 */
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 9999;
+}
+.intro-overlay iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 120vh;
+  transform: translate(-50%, -50%) scale(1.15);
+  border: none;
+}
+
+
+/* FADE-IN */
+.fade-in {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* MUTE BUTTON */
+.mute-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid red;
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-right: 80px;
+}
+
+.skull-sticker {
+  position: relative;
+  width: 140px;
+  height: 150px;
+  background-image: url("./vecna_skull.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  animation: fadeInSkull  ease-in forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInSkull {
+  from {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+
+.hero-title {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title-container {
+    gap: 1rem;
+  }
+  
+  .skull-sticker {
+    width: 80px;
+    height: 95px;
+  }
+  
+  .hero-title {
+    font-size: clamp(3rem, 8vw, 5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .title-container {
+    gap: 0.75rem;
+  }
+  
+  .skull-sticker {
+    width: 60px;
+    height: 70px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 6vw, 3rem);
+  }
+}
+
