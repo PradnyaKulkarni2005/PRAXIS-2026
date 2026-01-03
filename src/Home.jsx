@@ -56,8 +56,8 @@ export default function Home() {
     },
     {
       id: 4,
-      name: "Demodogs",
-      alias: "Dart's Family",
+      name: "HAWKINS ESCAPE",
+      alias: "GDGC presents",
       season: "Season 4",
       image:
         "https://cdna.artstation.com/p/assets/images/images/024/122/970/large/limkuk-demodogneutral.jpg?1581390593",
@@ -66,7 +66,8 @@ export default function Home() {
       threatLevel: 3,
       victims: 12,
       episodes: 5,
-      abilities: ["Pack Hunting", "Burrowing", "Rapid Growth"],
+      abilities: ["Time-Bound Decision Making", "Encrypted Logic Solving", "Team Coordination Under Stress"],
+      redirect: "/escape-hawkins",
     },
     {
       id: 5,
@@ -368,12 +369,11 @@ export default function Home() {
                   className="villain-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                   onClick={() => {
-                    if (villain.id === 5) {
-                      navigate("/mindscape");
-                    } else if (villain.id === 1) {
-                      navigate("/bgmi");
-                    }
-                  }}
+  if (villain.redirect) {
+    navigate(villain.redirect);
+  }
+}}
+
                 >
                   <div className="villain-image-container">
                     <img
