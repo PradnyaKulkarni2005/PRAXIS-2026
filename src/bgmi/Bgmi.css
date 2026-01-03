@@ -1,0 +1,171 @@
+.bgmi {
+  min-height: 100vh;
+  padding: 3rem;
+  color: #e5e7eb;
+  background-image: url("./bgmi_bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bgmi::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+
+.font-bebas {
+  font-family: "Bebas Neue", "Impact", "Arial Black", sans-serif !important;
+  font-weight: 700;
+}
+.font-courier {
+  font-family: "Courier Prime", "Courier New", monospace !important;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.info-grid {
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid #1e40af;
+  padding: 1rem;
+}
+
+.round-card {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid #1e3a8a;
+  margin: 1rem 0;
+  padding: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.round-card:hover {
+  background: rgba(30, 41, 59, 0.9);
+  transform: translateX(5px);
+}
+
+.warning {
+  border-left: 4px solid #f63b3b;
+  padding-left: 1rem;
+}
+
+.lights-sticker {
+  width: 140px;
+  height: 150px;
+  background-image: url("./eleven_bgmi.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 1rem;
+}
+
+
+
+.description-top {
+  font-size: clamp(1rem, 1vw, 1rem);
+  color: #9ca3af;
+  text-align: center;
+}
+.description-bottom {
+  font-size: clamp(1rem, 1vw, 1rem);
+  color: #9ca3af;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  color: #b11226;
+  font-size: 1.2rem;
+}
+.enter-btn {
+  display: block;
+  padding: 0.5rem 0.5rem;
+  background: #b11226;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 0 6px red;
+}
+a {
+  text-decoration: none;
+}
+
+.enter-btn:hover {
+  background: darkred;
+}
+
+
+@media (max-width: 480px) {
+  .enter-btn {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+    text-align: center;
+  }
+  .enter-btn:hover {
+    background: #b11226;
+  }
+}
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  z-index: 9999;
+}
+.intro-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .intro-video {
+    transform: scale(1.2);
+  }
+}
+
+@media (max-width: 480px) {
+  .bgmi {
+    padding: 1.5rem 1rem;
+  }
+
+  .info-grid {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .round-card {
+    padding: 0.85rem;
+    font-size: 0.9rem;
+  }
+
+  .warning {
+    padding-left: 0.75rem;
+  }
+
+  .lights-sticker {
+    display: none;
+  }
+
+  .description-top,
+  .description-bottom {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+}
