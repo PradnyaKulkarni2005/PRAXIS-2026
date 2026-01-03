@@ -20,7 +20,6 @@ export default function Mindscape() {
         typeof event.data === "string" ? JSON.parse(event.data) : event.data;
 
       if (data.event === "ready") {
-        // Player is loaded; listen for events
         iframeRef.current?.contentWindow.postMessage(
           { method: "addEventListener", value: "play" },
           "*"
@@ -30,10 +29,8 @@ export default function Mindscape() {
           "*"
         );
       } else if (data.event === "play") {
-        // Playback started; hide after exactly 2 seconds
         playTimeout = setTimeout(() => setShowIntro(false), 2000);
       } else if (data.event === "error") {
-        // Error occurred; fallback hide immediately
         console.error("Vimeo player error:", data.data);
         setShowIntro(false);
       }
@@ -41,13 +38,11 @@ export default function Mindscape() {
 
     window.addEventListener("message", handleMessage);
 
-    // Fallback: Hide after 5s max if nothing happens (shorter since 2s is quick)
     fallbackTimeout = setTimeout(() => {
       console.warn("Vimeo intro fallback: Hiding after timeout");
       setShowIntro(false);
-    }, 5000);
+    }, 2000);
 
-    // Cleanup
     return () => {
       window.removeEventListener("message", handleMessage);
       clearTimeout(playTimeout);
@@ -59,13 +54,14 @@ export default function Mindscape() {
     <>
       {showIntro && (
         <div className="intro-overlay">
-          <iframe
+          <video
             ref={iframeRef}
-            title="mindscape-intro"
-            src="https://player.vimeo.com/video/1141368059?autoplay=1&background=1&playsinline=1&loop=0&muted=1&api=1&player_id=mindscape-intro"
-            frameBorder="0"
-            allow="autoplay; fullscreen;"
-            allowFullScreen
+            src="/season5.mp4"
+            autoPlay
+            muted
+            playsInline
+            controls={false}
+            className="intro-video"
           />
         </div>
       )}
@@ -141,8 +137,12 @@ export default function Mindscape() {
             </a>
           </div>
 
-          <a href="/mindscapeRulebook.pdf" download className="download-btn font-courier" >
-              Download Rulebook
+          <a
+            href="/mindscapeRulebook.pdf"
+            download
+            className="download-btn font-courier"
+          >
+            Download Rulebook
           </a>
         </div>
       )}
