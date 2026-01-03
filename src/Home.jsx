@@ -14,13 +14,13 @@ export default function Home() {
   const villains = [
     {
       id: 1,
-      name: "Demogorgon",
-      alias: "The Monster",
+      name: "BGMI",
+      alias: "Praxis presents",
       season: "Season 1",
       image:
         "https://wallpapers.com/images/high/demogorgon-stranger-things-8z16phmzlp6bsj2g.webp",
       description:
-        "A predatory humanoid creature from the Upside Down. The first supernatural threat faced by the kids of Hawkins.",
+        "The Ultimate Squad Battle | Skill • Strategy • Survival.",
       threatLevel: 4,
       victims: 6,
       episodes: 8,
@@ -370,6 +370,8 @@ export default function Home() {
                   onClick={() => {
                     if (villain.id === 5) {
                       navigate("/mindscape");
+                    } else if (villain.id === 1) {
+                      navigate("/bgmi");
                     }
                   }}
                 >
