@@ -8,6 +8,10 @@ export default function Mindscape() {
   const iframeRef = useRef(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     if (!showIntro) return;
 
     let playTimeout;

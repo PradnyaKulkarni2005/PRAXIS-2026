@@ -28,31 +28,33 @@ export default function Home() {
     },
     {
       id: 2,
-      name: "Mind Flayer",
-      alias: "The Shadow Monster",
+      name: "CODE FROM THE UPSIDE DOWN",
+      alias: "Technical Challenge",
       season: "Season 2",
       image:
         "https://wallpapers.com/images/high/red-mind-flayer-stranger-things-phone-ek4f5jjtr9ngkdek.webp",
       description:
-        "A massive, spider-like entity that serves as the hive mind of the Upside Down. Commands an army of possessed hosts.",
-      threatLevel: 5,
-      victims: 15,
-      episodes: 12,
-      abilities: ["Mind Control", "Possession", "Hive Mind"],
+        "A technical event combining Web Development and DSA. Navigate through rounds testing your knowledge, decision-making, and implementation skills.",
+      threatLevel: 4,
+      victims: 0,
+      episodes: 3,
+      abilities: ["DSA Fundamentals", "Web Development", "Tech Auction", "Implementation"],
+      redirect: "/code-upside-down",
     },
     {
       id: 3,
-      name: "Vecna",
-      alias: "One / Henry Creel",
+      name: "VECNAVERSE",
+      alias: "Mind Challenge",
       season: "Season 3",
       image:
         "https://images.thedirect.com/media/article_full/vecna-stranger.jpg?imgeng=/cmpr_60/w_1280",
       description:
-        "The first test subject and true master of the Upside Down. Targets victims through psychological trauma and curses.",
-      threatLevel: 5,
-      victims: 4,
-      episodes: 9,
-      abilities: ["Psychic Powers", "Mind Manipulation", "Reality Warping"],
+        "A mind-bending challenge testing logic, communication, and memory. Navigate through puzzles, coordination tasks, and sequence challenges.",
+      threatLevel: 4,
+      victims: 0,
+      episodes: 3,
+      abilities: ["Code Breaking", "Trust & Guide", "Sequence Memory"],
+      redirect: "/vecnaverse",
     },
     {
       id: 4,
@@ -115,9 +117,18 @@ export default function Home() {
 
   /* ================= INTRO VIDEO ================= */
   useEffect(() => {
+    // Check if video has been shown before
+    const hasSeenIntro = localStorage.getItem("praxis-intro-shown");
+    
+    if (hasSeenIntro === "true") {
+      setShowHome(true);
+      return;
+    }
+
     const video = videoRef.current;
     if (!video) {
       setShowHome(true);
+      localStorage.setItem("praxis-intro-shown", "true");
       return;
     }
 
@@ -128,16 +139,21 @@ export default function Home() {
         await video.play();
       } catch {
         setShowHome(true);
+        localStorage.setItem("praxis-intro-shown", "true");
       }
     };
 
     tryPlay();
 
-    const onEnded = () => setShowHome(true);
+    const onEnded = () => {
+      setShowHome(true);
+      localStorage.setItem("praxis-intro-shown", "true");
+    };
     video.addEventListener("ended", onEnded);
 
     timeout = setTimeout(() => {
       setShowHome(true);
+      localStorage.setItem("praxis-intro-shown", "true");
     }, 8000);
 
     return () => {

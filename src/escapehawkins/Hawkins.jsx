@@ -1,156 +1,224 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Hawkins.css";
 
 export default function Hawkins() {
+  const navigate = useNavigate();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setMounted(true);
+  }, []);
 
   return (
-    <div className="relative min-h-screen bg-[#0a0a0f] text-gray-200 font-mono overflow-hidden">
-
-      {/* Background glow */}
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(139,0,0,0.12),transparent_60%)] animate-pulse-slow" />
-      <div className="fixed inset-0 bg-[radial-gradient(circle_at_bottom,rgba(185,28,28,0.08),transparent_60%)]" />
-
-      {/* Floating particles */}
-      <div className="fixed inset-0 pointer-events-none">
-        {[...Array(25)].map((_, i) => (
-          <span
-            key={i}
-            className="absolute w-[2px] h-[2px] bg-red-900 rounded-full opacity-20 animate-spin-slow"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-            }}
-          />
-        ))}
-      </div>
+    <div className="hawkins-container">
+      <button className="hawkins-back-btn" onClick={() => navigate("/")}>
+        ← Back to Hawkins
+      </button>
 
       {/* Content */}
-      <main
-        className={`relative z-10 max-w-5xl mx-auto px-6 py-24 transition-all duration-1000 ${
-          mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-        }`}
-      >
-
-        {/* INCIDENT REPORT */}
-        <section className="mb-28 border-l-4 border-red-900 pl-8">
-          <h2 className="text-sm tracking-[0.5em] text-red-800 mb-6 animate-blink">
-            INCIDENT REPORT
-          </h2>
-
-          <p className="leading-loose mb-4">
-            <span className="text-red-700 font-bold">CLASSIFIED //</span>{" "}
-            Dimensional membrane failure detected. Reality anchors unstable.
-          </p>
-
-          <p className="text-gray-400 mb-4">
-            Subjects report temporal distortion, hallucinations, and
-            psychological decay.
-          </p>
-
-          <p className="italic text-gray-500">
-            Escape before containment is permanent.
-          </p>
-        </section>
-
-        {/* ROUND 1 */}
-        <section className="mb-32 border border-red-900/40 p-10 hover:shadow-[0_0_30px_rgba(139,0,0,0.2)] transition">
-          <div className="flex items-center justify-between mb-8">
-            <span className="text-4xl text-red-900 font-bold">01</span>
-            <span className="text-xs tracking-[0.3em] text-gray-400">ONLINE</span>
+      <main className={`hawkins-content ${mounted ? "mounted" : ""}`}>
+        {/* Lab Report Header */}
+        <div className="lab-header">
+          <div className="lab-header-top">
+            <div className="lab-logo">HAWKINS NATIONAL LABORATORY</div>
+            <div className="lab-id">Report ID: HNL-2026-ESCAPE-001</div>
           </div>
+          <div className="lab-header-info">
+            <div className="lab-info-item">
+              <span className="lab-label">Date:</span>
+              <span className="lab-value">{new Date().toLocaleDateString()}</span>
+            </div>
+            <div className="lab-info-item">
+              <span className="lab-label">Status:</span>
+              <span className="lab-value lab-status-critical">CRITICAL</span>
+            </div>
+            <div className="lab-info-item">
+              <span className="lab-label">Classification:</span>
+              <span className="lab-value lab-classified">CONFIDENTIAL</span>
+            </div>
+          </div>
+        </div>
 
-          <h3 className="text-3xl tracking-widest mb-8">THE FRACTURE</h3>
-
-          <ul className="space-y-3 text-gray-400">
-            <li><span className="text-red-700">L1</span> Technical MCQs</li>
-            <li><span className="text-red-700">L2</span> Code Debugging</li>
-            <li><span className="text-red-700">L3</span> Logic Riddles</li>
-            <li><span className="text-red-700">L4</span> OS Concepts</li>
-            <li><span className="text-red-700">L5</span> Cryptography</li>
-          </ul>
-
-          <div className="mt-8 p-4 border border-red-800/50 bg-red-900/10">
-            <p className="text-sm text-red-600">
-              ⚠ Wrong final answer results in immediate disqualification
-            </p>
+        {/* Test Results Summary */}
+        <section className="lab-section">
+          <h2 className="lab-section-title">TEST RESULTS SUMMARY</h2>
+          <div className="lab-results-grid">
+            <div className="lab-result-item">
+              <div className="lab-result-label">Dimensional Membrane</div>
+              <div className="lab-result-value lab-result-fail">FAILURE DETECTED</div>
+            </div>
+            <div className="lab-result-item">
+              <div className="lab-result-label">Reality Anchors</div>
+              <div className="lab-result-value lab-result-fail">UNSTABLE</div>
+            </div>
+            <div className="lab-result-item">
+              <div className="lab-result-label">Subject Status</div>
+              <div className="lab-result-value lab-result-warning">TEMPORAL DISTORTION</div>
+            </div>
+          </div>
+          <div className="lab-note">
+            <strong>Note:</strong> Escape protocol must be initiated before containment becomes permanent.
           </div>
         </section>
 
-        {/* ROUND 2 */}
-        <section className="mb-32 border border-red-800/40 p-10 hover:shadow-[0_0_30px_rgba(185,28,28,0.2)] transition">
-          <div className="flex items-center justify-between mb-8">
-            <span className="text-4xl text-red-700 font-bold">02</span>
-            <span className="text-xs tracking-[0.3em] text-gray-400">OFFLINE</span>
+        {/* TEST PHASE 1 */}
+        <section className="lab-section">
+          <div className="lab-phase-header">
+            <div className="lab-phase-number">TEST PHASE 01</div>
+            <div className="lab-phase-type">ONLINE ASSESSMENT</div>
           </div>
+          <h3 className="lab-phase-title">THE FRACTURE</h3>
+          
+          <table className="lab-test-table">
+            <thead>
+              <tr>
+                <th>Test Code</th>
+                <th>Test Description</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="lab-test-code">L1</td>
+                <td>Technical MCQs</td>
+                <td>Multiple Choice</td>
+              </tr>
+              <tr>
+                <td className="lab-test-code">L2</td>
+                <td>Code Debugging</td>
+                <td>Practical</td>
+              </tr>
+              <tr>
+                <td className="lab-test-code">L3</td>
+                <td>Logic Riddles</td>
+                <td>Analytical</td>
+              </tr>
+              <tr>
+                <td className="lab-test-code">L4</td>
+                <td>OS Concepts</td>
+                <td>Theoretical</td>
+              </tr>
+              <tr>
+                <td className="lab-test-code">L5</td>
+                <td>Cryptography</td>
+                <td>Security</td>
+              </tr>
+            </tbody>
+          </table>
 
-          <h3 className="text-3xl tracking-widest mb-8">CREEL HOUSE</h3>
-
-          <ul className="space-y-3 text-gray-400">
-            <li><span className="text-red-600">M1</span> System Logic</li>
-            <li><span className="text-red-600">M2</span> Debugging</li>
-            <li><span className="text-red-600">M3</span> Decryption</li>
-            <li><span className="text-red-600">M4</span> IT Decision Making</li>
-          </ul>
-
-          <div className="mt-8 p-4 border border-red-700/50 bg-red-900/10">
-            <p className="text-sm text-red-600">
-              ⚠ No external communication permitted
-            </p>
+          <div className="lab-warning-box">
+            <div className="lab-warning-icon">⚠</div>
+            <div className="lab-warning-text">
+              <strong>Critical:</strong> Wrong final answer results in immediate disqualification
+            </div>
           </div>
         </section>
 
-        {/* WINNER PROTOCOL */}
-        <section className="mb-32 border-t border-red-900 pt-12">
-          <h3 className="text-sm tracking-[0.5em] text-red-800 mb-8">
-            WINNER PROTOCOL
-          </h3>
+        {/* TEST PHASE 2 */}
+        <section className="lab-section">
+          <div className="lab-phase-header">
+            <div className="lab-phase-number lab-phase-number-alt">TEST PHASE 02</div>
+            <div className="lab-phase-type">OFFLINE ASSESSMENT</div>
+          </div>
+          <h3 className="lab-phase-title">CREEL HOUSE</h3>
+          
+          <table className="lab-test-table">
+            <thead>
+              <tr>
+                <th>Test Code</th>
+                <th>Test Description</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="lab-test-code">M1</td>
+                <td>System Logic</td>
+                <td>Analytical</td>
+              </tr>
+              <tr>
+                <td className="lab-test-code">M2</td>
+                <td>Debugging</td>
+                <td>Practical</td>
+              </tr>
+              <tr>
+                <td className="lab-test-code">M3</td>
+                <td>Decryption</td>
+                <td>Security</td>
+              </tr>
+              <tr>
+                <td className="lab-test-code">M4</td>
+                <td>IT Decision Making</td>
+                <td>Strategic</td>
+              </tr>
+            </tbody>
+          </table>
 
-          <ul className="space-y-4 text-gray-400">
-            <li>→ First 3 teams escape</li>
-            <li>→ Speed is critical</li>
-            <li className="text-red-700 font-bold">
-              ✕ Failure leads to permanent containment
-            </li>
-          </ul>
+          <div className="lab-warning-box">
+            <div className="lab-warning-icon">⚠</div>
+            <div className="lab-warning-text">
+              <strong>Protocol:</strong> No external communication permitted during this phase
+            </div>
+          </div>
         </section>
 
-        {/* CTA */}
-        <section className="text-center space-y-8">
-          <h2 className="text-sm tracking-[0.6em] text-red-700 animate-pulse-slow">
-            HE IS CALLING
-          </h2>
+        {/* SUCCESS CRITERIA */}
+        <section className="lab-section">
+          <h3 className="lab-section-title">SUCCESS CRITERIA</h3>
+          <div className="lab-criteria-list">
+            <div className="lab-criteria-item">
+              <span className="lab-criteria-marker">✓</span>
+              <span className="lab-criteria-text">First 3 teams qualify for escape protocol</span>
+            </div>
+            <div className="lab-criteria-item">
+              <span className="lab-criteria-marker">✓</span>
+              <span className="lab-criteria-text">Speed is critical factor in evaluation</span>
+            </div>
+            <div className="lab-criteria-item lab-criteria-critical">
+              <span className="lab-criteria-marker">✕</span>
+              <span className="lab-criteria-text">Failure leads to permanent containment</span>
+            </div>
+          </div>
+        </section>
 
-          <a
-            href="https://forms.google.com/pccoe"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block border-2 border-red-900 py-4 tracking-widest hover:bg-red-900/20 transition"
-          >
-            REGISTER — PCCOE STUDENTS
-          </a>
+        {/* REGISTRATION */}
+        <section className="lab-section lab-section-final">
+          <h2 className="lab-section-title">REGISTRATION PROTOCOL</h2>
+          <div className="lab-registration-grid">
+            <a
+              href="https://forms.google.com/pccoe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lab-reg-button"
+            >
+              <div className="lab-reg-button-label">REGISTER</div>
+              <div className="lab-reg-button-sub">PCCOE STUDENTS</div>
+            </a>
 
-          <a
-            href="https://forms.google.com/non-pccoe"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block border-2 border-red-900 py-4 tracking-widest hover:bg-red-900/20 transition"
-          >
-            REGISTER — NON-PCCOE STUDENTS
-          </a>
+            <a
+              href="https://forms.google.com/non-pccoe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lab-reg-button"
+            >
+              <div className="lab-reg-button-label">REGISTER</div>
+              <div className="lab-reg-button-sub">NON-PCCOE STUDENTS</div>
+            </a>
 
-          <a
-            href="/rulebook.pdf"
-            download
-            className="block border border-red-700 py-3 text-sm tracking-widest hover:bg-red-900/30 transition"
-          >
-            DOWNLOAD RULEBOOK
-          </a>
-
-          <p className="text-xs tracking-[0.4em] text-gray-500 pt-6">
-            THERE IS NO TURNING BACK
-          </p>
+            <a
+              href="/rulebook.pdf"
+              download
+              className="lab-reg-button lab-reg-button-secondary"
+            >
+              <div className="lab-reg-button-label">DOWNLOAD</div>
+              <div className="lab-reg-button-sub">RULEBOOK</div>
+            </a>
+          </div>
+          <div className="lab-footer-note">
+            <em>This report is classified. Unauthorized access is prohibited.</em>
+          </div>
         </section>
 
       </main>
