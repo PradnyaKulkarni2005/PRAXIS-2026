@@ -1,0 +1,499 @@
+.hawkins-container {
+  min-height: 100vh;
+  background-color: #0a0a0f;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 39px,
+      rgba(255, 255, 255, 0.03) 40px
+    );
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  color: #e5e7eb;
+  overflow-x: hidden;
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Dark grid effect */
+.hawkins-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Main content */
+.hawkins-content {
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background-color: #1a1a1f;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.1);
+  transition: all 1s ease;
+}
+
+.hawkins-content.mounted {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hawkins-content:not(.mounted) {
+  opacity: 0;
+  transform: translateY(3rem);
+}
+
+/* Lab Report Header */
+.lab-header {
+  border-bottom: 3px solid rgba(220, 38, 38, 0.5);
+  padding-bottom: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.lab-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.lab-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  color: #dc2626;
+  text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+}
+
+.lab-id {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  font-weight: normal;
+  letter-spacing: 0.05em;
+}
+
+.lab-header-info {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.lab-info-item {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.lab-label {
+  font-weight: bold;
+  color: #d1d5db;
+}
+
+.lab-value {
+  color: #9ca3af;
+}
+
+.lab-status-critical {
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.lab-classified {
+  color: #dc2626;
+  font-weight: bold;
+  border: 1px solid #dc2626;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+/* Lab Sections */
+.lab-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.lab-section-final {
+  border-bottom: none;
+}
+
+.lab-section-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  color: #dc2626;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgba(220, 38, 38, 0.5);
+  padding-bottom: 0.5rem;
+  text-shadow: 0 0 10px rgba(220, 38, 38, 0.3);
+}
+
+/* Test Results Grid */
+.lab-results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.lab-result-item {
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  padding: 1rem;
+  background-color: rgba(220, 38, 38, 0.05);
+}
+
+.lab-result-label {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+}
+
+.lab-result-value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #e5e7eb;
+}
+
+.lab-result-fail {
+  color: #dc2626;
+}
+
+.lab-result-warning {
+  color: #d97706;
+}
+
+.lab-note {
+  font-size: 0.875rem;
+  color: #fbbf24;
+  font-style: italic;
+  padding: 0.75rem;
+  background-color: rgba(217, 119, 6, 0.1);
+  border-left: 3px solid #d97706;
+}
+
+/* Phase Headers */
+.lab-phase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+}
+
+.lab-phase-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  color: #dc2626;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 10px rgba(220, 38, 38, 0.5);
+}
+
+.lab-phase-number-alt {
+  color: #ff4d4d;
+}
+
+.lab-phase-type {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.lab-phase-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  margin: 1rem 0 1.5rem 0;
+  color: #e5e7eb;
+}
+
+/* Test Table */
+.lab-test-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.lab-test-table thead {
+  background-color: rgba(220, 38, 38, 0.1);
+  border-bottom: 2px solid rgba(220, 38, 38, 0.5);
+}
+
+.lab-test-table th {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: bold;
+  color: #dc2626;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.lab-test-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(220, 38, 38, 0.2);
+  color: #d1d5db;
+}
+
+.lab-test-table tbody tr:hover {
+  background-color: rgba(220, 38, 38, 0.05);
+}
+
+.lab-test-code {
+  font-weight: bold;
+  color: #dc2626;
+  font-family: 'Courier Prime', monospace;
+}
+
+/* Warning Box */
+.lab-warning-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: rgba(220, 38, 38, 0.15);
+  border-left: 4px solid #dc2626;
+  margin-top: 1rem;
+}
+
+.lab-warning-icon {
+  font-size: 1.5rem;
+  color: #ff4d4d;
+  flex-shrink: 0;
+  text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+.lab-warning-text {
+  font-size: 0.875rem;
+  color: #ff6b6b;
+  line-height: 1.5;
+}
+
+.lab-warning-text strong {
+  font-weight: bold;
+}
+
+/* Criteria List */
+.lab-criteria-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.lab-criteria-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  border-left: 3px solid #10b981;
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.lab-criteria-item.lab-criteria-critical {
+  border-left-color: #dc2626;
+  background-color: rgba(220, 38, 38, 0.15);
+}
+
+.lab-criteria-marker {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #10b981;
+  flex-shrink: 0;
+}
+
+.lab-criteria-critical .lab-criteria-marker {
+  color: #ff4d4d;
+}
+
+.lab-criteria-text {
+  color: #d1d5db;
+  font-size: 0.875rem;
+}
+
+.lab-criteria-critical .lab-criteria-text {
+  color: #ff6b6b;
+  font-weight: bold;
+}
+
+/* Registration */
+.lab-registration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.lab-reg-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border: 2px solid rgba(220, 38, 38, 0.5);
+  background-color: rgba(220, 38, 38, 0.1);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-height: 120px;
+}
+
+.lab-reg-button:hover {
+  background-color: rgba(220, 38, 38, 0.3);
+  border-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+}
+
+.lab-reg-button-secondary {
+  border-color: rgba(220, 38, 38, 0.4);
+}
+
+.lab-reg-button-secondary:hover {
+  background-color: rgba(220, 38, 38, 0.25);
+  border-color: #dc2626;
+}
+
+.lab-reg-button-label {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  color: #dc2626;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.lab-reg-button:hover .lab-reg-button-label {
+  color: #ff4d4d;
+  text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+.lab-reg-button-sub {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.lab-reg-button:hover .lab-reg-button-sub {
+  color: #d1d5db;
+}
+
+.lab-footer-note {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-style: italic;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+/* Back button */
+.hawkins-back-btn {
+  position: relative;
+  z-index: 20;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  color: #ff4d4d;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-family: 'Courier Prime', monospace;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  margin: 0 2rem 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.2);
+}
+
+.hawkins-back-btn:hover {
+  background-color: rgba(220, 38, 38, 0.2);
+  color: #ff6b6b;
+  border-color: #dc2626;
+  text-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hawkins-container {
+    padding: 1rem 0;
+  }
+
+  .hawkins-content {
+    padding: 2rem 1rem;
+    margin: 0 1rem;
+  }
+
+  .lab-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .lab-header-info {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .lab-results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-phase-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .lab-registration-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-test-table {
+    font-size: 0.75rem;
+  }
+
+  .lab-test-table th,
+  .lab-test-table td {
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hawkins-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .lab-logo {
+    font-size: 1.25rem;
+  }
+
+  .lab-phase-title {
+    font-size: 1.25rem;
+  }
+
+  .lab-section-title {
+    font-size: 1rem;
+  }
+
+  .hawkins-back-btn {
+    margin: 0 1rem 1rem 1rem;
+  }
+}

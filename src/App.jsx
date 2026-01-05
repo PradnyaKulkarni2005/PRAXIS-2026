@@ -3,6 +3,8 @@ import Home from "./Home";
 import Bgmi from "./bgmi/Bgmi";
 import Mindscape from "./mindscape/Mindscape";
 import EscapeHawkins from "./escapehawkins/HawkinsRoute";
+import CodeUpsideDown from "./codeUpsideDown/CodeUpsideDown";
+import VecnaVerse from "./vecnaverse/VecnaVerse";
 
 export default function App() {
   return (
@@ -11,6 +13,8 @@ export default function App() {
       <Route path="/mindscape" element={<Mindscape />} />
       <Route path="/bgmi" element={<Bgmi />} />
       <Route path="/escape-hawkins" element={<EscapeHawkins />} />
+      <Route path="/code-upside-down" element={<CodeUpsideDown />} />
+      <Route path="/vecnaverse" element={<VecnaVerse />} />
     </Routes>
   );
 }
