@@ -125,7 +125,7 @@ export default function Bgmi() {
           </div>
 
           <a
-            href="/bgmiRulebook.pdf"
+            href="https://drive.google.com/file/d/1PvrpIrMz9uZhvbOavyl43GeAYAlN5pVH/view"
             download
             className="download-btn font-courier"
           >

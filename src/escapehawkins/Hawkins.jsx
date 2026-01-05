@@ -188,7 +188,7 @@ export default function Hawkins() {
           <h2 className="lab-section-title">REGISTRATION PROTOCOL</h2>
           <div className="lab-registration-grid">
             <a
-              href="https://forms.google.com/pccoe"
+              href="https://forms.gle/wJryyor81MBzcdjZA"
               target="_blank"
               rel="noopener noreferrer"
               className="lab-reg-button"
@@ -198,7 +198,7 @@ export default function Hawkins() {
             </a>
 
             <a
-              href="https://forms.google.com/non-pccoe"
+              href="https://forms.gle/Y3QAwyXbjC6xoRzFA"
               target="_blank"
               rel="noopener noreferrer"
               className="lab-reg-button"
@@ -208,8 +208,9 @@ export default function Hawkins() {
             </a>
 
             <a
-              href="/rulebook.pdf"
-              download
+              href="https://drive.google.com/file/d/1LLa4Lm7zUfyssycWpwDgCSa_xiCUhwJT/view?usp=drivesdk"
+              target="_blank"
+              rel="noopener noreferrer"
               className="lab-reg-button lab-reg-button-secondary"
             >
               <div className="lab-reg-button-label">DOWNLOAD</div>

@@ -30,7 +30,7 @@ export default function VecnaVerse() {
 
       {/* ROUNDS */}
       <section className="rounds font-courier">
-        <h2>🔻 The Rounds</h2>
+        <h2>The Rounds</h2>
 
         <div className="round-card">
           <div className="round-header">
@@ -80,12 +80,13 @@ export default function VecnaVerse() {
       {/* REGISTRATION */}
       <div className="register">
         <a
-          href="#"
+          href="https://forms.gle/hmrMLAbWa4DnQ3RFA"
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => {
             e.preventDefault();
             // Add PCCoE registration link here
+            window.open("https://forms.gle/hmrMLAbWa4DnQ3RFA", "_blank");
           }}
         >
           <button className="enter-btn font-courier">
@@ -94,12 +95,13 @@ export default function VecnaVerse() {
         </a>
 
         <a
-          href="#"
+          href="https://forms.gle/CX1aRZvDdSn27Gxv5"
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => {
             e.preventDefault();
             // Add Non-PCCoE registration link here
+            window.open("https://forms.gle/CX1aRZvDdSn27Gxv5", "_blank");
           }}
         >
           <button className="enter-btn font-courier">
@@ -110,13 +112,16 @@ export default function VecnaVerse() {
 
       {/* DOWNLOAD RULEBOOK */}
       <a
-        href="#"
+        href="https://drive.google.com/file/d/11elnHzn6j8MVtVmBEurH3WycCOAuMgTb/view?usp=drive_link"
         download
         className="download-btn font-courier"
         onClick={(e) => {
           e.preventDefault();
           // Add rulebook download link here
+          window.open("https://drive.google.com/file/d/11elnHzn6j8MVtVmBEurH3WycCOAuMgTb/view?usp=drive_link", "_blank");
         }}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         Download Rulebook
       </a>

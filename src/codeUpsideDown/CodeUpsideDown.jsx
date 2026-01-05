@@ -30,7 +30,7 @@ export default function CodeUpsideDown() {
 
       {/* ABOUT EVENT */}
       <section className="about font-courier">
-        <h2>🔻 About the Event</h2>
+        <h2>About the Event</h2>
         <div className="about-card">
           <p>
             Code From the Upside Down is a technical event that combines Web Development 
@@ -43,7 +43,7 @@ export default function CodeUpsideDown() {
 
       {/* ROUNDS */}
       <section className="rounds font-courier">
-        <h2>🔻 The Rounds</h2>
+        <h2>The Rounds</h2>
 
         <div className="round-card">
           <div className="round-header">
@@ -101,12 +101,13 @@ export default function CodeUpsideDown() {
       {/* REGISTRATION */}
       <div className="register">
         <a
-          href="#"
+          href="https://forms.gle/R9XuQkLh9H8MzV7i8"
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => {
             e.preventDefault();
             // Add PCCoE registration link here
+            window.open("https://forms.gle/R9XuQkLh9H8MzV7i8", "_blank");
           }}
         >
           <button className="enter-btn font-courier">
@@ -115,12 +116,13 @@ export default function CodeUpsideDown() {
         </a>
 
         <a
-          href="#"
+          href="https://forms.gle/XJf4oDSY1uodKuBh6"
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => {
             e.preventDefault();
             // Add Non-PCCoE registration link here
+          window.open("https://forms.gle/XJf4oDSY1uodKuBh6", "_blank");
           }}
         >
           <button className="enter-btn font-courier">
@@ -131,12 +133,14 @@ export default function CodeUpsideDown() {
 
       {/* DOWNLOAD RULEBOOK */}
       <a
-        href="#"
-        download
+        href="https://drive.google.com/file/d/1H3Y9nBxIlxOKTRbTvusLjDan_oxg2DFh/view"
+        target="_blank"
+        rel="noopener noreferrer"
         className="download-btn font-courier"
         onClick={(e) => {
           e.preventDefault();
           // Add rulebook download link here
+          window.open("https://drive.google.com/file/d/1H3Y9nBxIlxOKTRbTvusLjDan_oxg2DFh/view", "_blank");
         }}
       >
         Download Rulebook

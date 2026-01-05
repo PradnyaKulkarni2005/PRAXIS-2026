@@ -142,8 +142,9 @@ export default function Mindscape() {
           </div>
 
           <a
-            href="/mindscapeRulebook.pdf"
-            download
+            href="https://drive.google.com/file/d/1J-GMujSDPAKjSRoFiAK4GQMU2fG-jRzV/view"
+            target="_blank"
+            rel="noopener noreferrer"
             className="download-btn font-courier"
           >
             Download Rulebook
