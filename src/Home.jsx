@@ -5,7 +5,9 @@ import Hero from "./components/Hero";
 import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const [showHome, setShowHome] = useState(false);
+  const [showHome, setShowHome] = useState(() => {
+  return localStorage.getItem("praxis-intro-shown") === "true";
+});
   const [scrollY, setScrollY] = useState(0);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -19,13 +21,12 @@ export default function Home() {
       season: "Season 1",
       image:
         "https://res.cloudinary.com/dyricwenw/image/upload/v1768400764/stranger_things__jqzdsz.jpg",
-      description:
-        "The Ultimate Squad Battle | Skill • Strategy • Survival.",
+      description: "The Ultimate Squad Battle | Skill • Strategy • Survival.",
       threatLevel: 4,
       victims: 6,
       episodes: 8,
       abilities: ["Teleportation", "Enhanced Strength", "Tracking"],
-      redirect: "/bgmi"
+      redirect: "/bgmi",
     },
     {
       id: 2,
@@ -39,7 +40,12 @@ export default function Home() {
       threatLevel: 4,
       victims: 0,
       episodes: 3,
-      abilities: ["DSA Fundamentals", "Web Development", "Tech Auction", "Implementation"],
+      abilities: [
+        "DSA Fundamentals",
+        "Web Development",
+        "Tech Auction",
+        "Implementation",
+      ],
       redirect: "/code-upside-down",
     },
     {
@@ -69,7 +75,11 @@ export default function Home() {
       threatLevel: 3,
       victims: 12,
       episodes: 5,
-      abilities: ["Time-Bound Decision Making", "Encrypted Logic Solving", "Team Coordination Under Stress"],
+      abilities: [
+        "Time-Bound Decision Making",
+        "Encrypted Logic Solving",
+        "Team Coordination Under Stress",
+      ],
       redirect: "/escape-hawkins",
     },
     {
@@ -117,51 +127,32 @@ export default function Home() {
   }, []);
 
   /* ================= INTRO VIDEO ================= */
-  useEffect(() => {
-    // Check if video has been shown before
-    const hasSeenIntro = localStorage.getItem("praxis-intro-shown");
-    
-    if (hasSeenIntro === "true") {
-      setShowHome(true);
-      return;
-    }
+useEffect(() => {
+  if (showHome) return;
 
-    const video = videoRef.current;
-    if (!video) {
-      setShowHome(true);
-      localStorage.setItem("praxis-intro-shown", "true");
-      return;
-    }
+  const video = videoRef.current;
+  if (!video) {
+    setShowHome(true);
+    localStorage.setItem("praxis-intro-shown", "true");
+    return;
+  }
 
-    let timeout;
+  const endIntro = () => {
+    setShowHome(true);
+    localStorage.setItem("praxis-intro-shown", "true");
+  };
 
-    const tryPlay = async () => {
-      try {
-        await video.play();
-      } catch {
-        setShowHome(true);
-        localStorage.setItem("praxis-intro-shown", "true");
-      }
-    };
+  video.play().catch(endIntro);
+  video.addEventListener("ended", endIntro);
 
-    tryPlay();
+  const timeout = setTimeout(endIntro, 8000);
 
-    const onEnded = () => {
-      setShowHome(true);
-      localStorage.setItem("praxis-intro-shown", "true");
-    };
-    video.addEventListener("ended", onEnded);
+  return () => {
+    clearTimeout(timeout);
+    video.removeEventListener("ended", endIntro);
+  };
+}, [showHome]);
 
-    timeout = setTimeout(() => {
-      setShowHome(true);
-      localStorage.setItem("praxis-intro-shown", "true");
-    }, 8000);
-
-    return () => {
-      clearTimeout(timeout);
-      video.removeEventListener("ended", onEnded);
-    };
-  }, []);
 
   /* ================= PARTICLE BACKGROUND ================= */
   useEffect(() => {
@@ -227,10 +218,12 @@ export default function Home() {
         <section className="video-section">
           <video
             ref={videoRef}
-            src="/trailer.mp4"
+            src="https://res.cloudinary.com/dyricwenw/video/upload/v1768401918/trailer_t944kx.mp4"
             muted
             playsInline
             autoPlay
+            preload="auto"
+            webkit-playsinline="true"
             className="video-full"
           />
         </section>
@@ -340,20 +333,22 @@ export default function Home() {
                     </p>
                   </div>
 
-                  <p className="font-courier chapters-description">
+                  <div className="font-courier chapters-description">
                     <div className="flip-wrapper">
                       <p className="flip-text">
                         Every chapter pulls you deeper into the Upside Down.
                       </p>
                     </div>
+
                     <br />
                     <br />
+
                     <div className="flip-wrapper">
                       <p className="flip-text">
                         Where shadows breathe and nightmares become real.
                       </p>
                     </div>
-                  </p>
+                  </div>
                 </div>
 
                 <div className="chapters-model-wrapper">
@@ -386,11 +381,10 @@ export default function Home() {
                   className="villain-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                   onClick={() => {
-  if (villain.redirect) {
-    navigate(villain.redirect);
-  }
-}}
-
+                    if (villain.redirect) {
+                      navigate(villain.redirect);
+                    }
+                  }}
                 >
                   <div className="villain-image-container">
                     <img
