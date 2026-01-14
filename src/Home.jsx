@@ -18,13 +18,14 @@ export default function Home() {
       alias: "Praxis presents",
       season: "Season 1",
       image:
-        "https://wallpapers.com/images/high/demogorgon-stranger-things-8z16phmzlp6bsj2g.webp",
+        "https://res.cloudinary.com/dyricwenw/image/upload/v1768400764/stranger_things__jqzdsz.jpg",
       description:
         "The Ultimate Squad Battle | Skill • Strategy • Survival.",
       threatLevel: 4,
       victims: 6,
       episodes: 8,
       abilities: ["Teleportation", "Enhanced Strength", "Tracking"],
+      redirect: "/bgmi"
     },
     {
       id: 2,
@@ -32,7 +33,7 @@ export default function Home() {
       alias: "Technical Challenge",
       season: "Season 2",
       image:
-        "https://wallpapers.com/images/high/red-mind-flayer-stranger-things-phone-ek4f5jjtr9ngkdek.webp",
+        "https://res.cloudinary.com/dyricwenw/image/upload/v1768400507/Stranger_Things_rawisw.jpg",
       description:
         "A technical event combining Web Development and DSA. Navigate through rounds testing your knowledge, decision-making, and implementation skills.",
       threatLevel: 4,
@@ -77,7 +78,7 @@ export default function Home() {
       alias: "MLSC presents",
       season: "Season 5",
       image:
-        "https://cdna.artstation.com/p/assets/images/images/024/122/970/large/limkuk-demodogneutral.jpg?1581390593",
+        "https://res.cloudinary.com/dyricwenw/image/upload/v1768400643/VECNAAAA_lrbwb7.jpg",
       description:
         "Mindscape is a ruthless four-round gauntlet. Survive the elimination, hack the glitch, and crack the code to claim the ultimate title.",
       threatLevel: 3,

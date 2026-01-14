@@ -2,7 +2,7 @@
 export default function DemogorgonModel() {
   return (
     <model-viewer
-      src="/models/demogorgon.glb"
+      src="/public/models/demogorgon.glb"
       alt="Demogorgon 3D Model"
       camera-controls
       disable-zoom

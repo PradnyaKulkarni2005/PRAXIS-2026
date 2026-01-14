@@ -9,7 +9,7 @@
   min-height: 100vh;
   color: #eee;
   padding: 3rem;
-  background-image: url("./vecna-bg.png");
+  background-image: url("https://res.cloudinary.com/dyricwenw/image/upload/v1768400130/vecna-bg_ttggkq.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -193,7 +193,7 @@ a {
   position: relative;
   width: 140px;
   height: 150px;
-  background-image: url("./vecna_skull.png");
+  background-image: url("https://res.cloudinary.com/dyricwenw/image/upload/v1768400130/vecna_skull_ksiikf.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

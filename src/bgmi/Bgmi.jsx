@@ -47,7 +47,7 @@ export default function Bgmi() {
         <div className="intro-overlay">
           <video
             ref={iframeRef}
-            src="/season1.mp4"
+            src="https://res.cloudinary.com/dyricwenw/video/upload/v1768400137/season1_qx8api.mp4"
             autoPlay
             muted
             playsInline
@@ -88,7 +88,6 @@ export default function Bgmi() {
             </div>
           </section>
 
-          {/* ROUNDS */}
           <section className="rounds font-courier">
             <h2>🔻 The Encounter</h2>
 

@@ -60,7 +60,7 @@ export default function Mindscape() {
         <div className="intro-overlay">
           <video
             ref={iframeRef}
-            src="/season5.mp4"
+            src="https://res.cloudinary.com/dyricwenw/video/upload/v1768400131/season5_bn7t6n.mp4"
             autoPlay
             muted
             playsInline

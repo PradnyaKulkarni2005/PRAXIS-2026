@@ -2,7 +2,7 @@
   min-height: 100vh;
   padding: 3rem;
   color: #e5e7eb;
-  background-image: url("./bgmi_bg.jpg");
+  background-image: url("https://res.cloudinary.com/dyricwenw/image/upload/v1768400130/bgmi_bg_z420ic.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -61,7 +61,7 @@
 .lights-sticker {
   width: 140px;
   height: 150px;
-  background-image: url("./eleven_bgmi.png");
+  background-image: url("https://res.cloudinary.com/dyricwenw/image/upload/v1768400130/eleven_bgmi_zno3mw.png");
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 1rem;
