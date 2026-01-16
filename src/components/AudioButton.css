@@ -1,0 +1,37 @@
+.audio-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+
+  background-color: #e53935; /* red */
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.audio-btn:hover {
+  transform: scale(1.08);
+  background-color: #d32f2f;
+}
+
+.audio-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+  stroke: white;
+  stroke-width: 2;
+}
+
+.audio-btn:active {
+  transform: scale(0.95);
+}
