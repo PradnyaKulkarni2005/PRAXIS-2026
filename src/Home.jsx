@@ -501,6 +501,7 @@ useEffect(() => {
           <footer className="footer">
             <div className="footer-content">
               <p className="font-courier footer-copyright">©2026pccoe</p>
+              <p className="font-courier footer-copyright">Made with ❤️ by IT DEPARTMENT</p>
             </div>
           </footer>
         </div>
