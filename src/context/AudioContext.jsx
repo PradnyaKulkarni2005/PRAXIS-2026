@@ -1,44 +1,29 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 const AudioContext = createContext();
 
 export const AudioProvider = ({ children }) => {
-  const audioRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true); // DEFAULT ON
+  const audioRef = useRef(
+    new Audio("/backgroundmusic.mp3")
+  );
 
-  useEffect(() => {
-    audioRef.current = new Audio("/backgroundmusic.mp3");
-    audioRef.current.loop = true;
-    audioRef.current.volume = 0.5;
+  const [isPlaying, setIsPlaying] = useState(false); // browser forces false
 
-    // Try autoplay
-    const playPromise = audioRef.current.play();
-    if (playPromise !== undefined) {
-      playPromise
-        .then(() => {
-          setIsPlaying(true);
-        })
-        .catch(() => {
-          // Autoplay blocked → wait for user interaction
-          setIsPlaying(false);
-        });
-    }
+  // setup once
+  audioRef.current.loop = true;
+  audioRef.current.volume = 0.5;
 
-    return () => {
-      audioRef.current.pause();
-      audioRef.current = null;
-    };
-  }, []);
-
-  const toggleAudio = () => {
-    if (!audioRef.current) return;
-
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.play();
-      setIsPlaying(true);
+  const toggleAudio = async () => {
+    try {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        await audioRef.current.play(); // MUST be called from click
+        setIsPlaying(true);
+      }
+    } catch (err) {
+      console.error("Audio blocked:", err);
     }
   };
 
