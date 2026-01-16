@@ -24,9 +24,10 @@ export default function Preloader({ onFinish }) {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[#0a0a0f] transition-opacity duration-1000 ${
+      className={`fixed top-0 left-0 w-full h-full z-[9999] flex items-center justify-center bg-[#0a0a0f] transition-opacity duration-1000 ${
         fade ? "opacity-0" : "opacity-100"
       }`}
+      style={{ width: '100vw', height: '100vh' }}
     >
       {/* Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle,rgba(139,0,0,0.2),transparent_60%)] animate-pulse" />
@@ -40,7 +41,10 @@ export default function Preloader({ onFinish }) {
         {/* Orb */}
         <div className="relative mx-auto w-24 h-24">
           <div className="absolute inset-0 rounded-full bg-red-900 blur-2xl opacity-30 animate-pulse" />
-          <div className="absolute inset-0 rounded-full border border-red-800 animate-spin-slow" />
+          <div 
+            className="absolute inset-0 rounded-full border border-red-800"
+            style={{ animation: 'spin 3s linear infinite' }}
+          />
         </div>
 
         {/* Messages */}
@@ -79,7 +83,13 @@ export default function Preloader({ onFinish }) {
 
         {/* Progress bar */}
         <div className="w-64 h-[2px] bg-gray-800 overflow-hidden">
-          <div className="h-full bg-red-800 animate-progress" />
+          <div 
+            className="h-full bg-red-800"
+            style={{ 
+              animation: 'progress 5s linear forwards',
+              width: '0%'
+            }}
+          />
         </div>
       </div>
     </div>

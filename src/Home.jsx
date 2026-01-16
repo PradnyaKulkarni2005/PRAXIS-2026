@@ -69,7 +69,7 @@ export default function Home() {
       alias: "GDGC presents",
       season: "Season 4",
       image:
-        "https://cdna.artstation.com/p/assets/images/images/024/122/970/large/limkuk-demodogneutral.jpg?1581390593",
+        "./hellComesToHawkins.png",
       description:
         "Adolescent Demogorgons that hunt in packs. Dart was raised by Dustin before joining the swarm.",
       threatLevel: 3,
@@ -501,6 +501,7 @@ useEffect(() => {
           <footer className="footer">
             <div className="footer-content">
               <p className="font-courier footer-copyright">©2026pccoe</p>
+              <p className="font-courier footer-copyright">Made with ❤️ by IT DEPARTMENT</p>
             </div>
           </footer>
         </div>
