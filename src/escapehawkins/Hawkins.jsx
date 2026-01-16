@@ -218,7 +218,7 @@ export default function Hawkins() {
             </a>
 
             <a
-              href="https://chat.whatsapp.com/YOUR_ESCAPE_HAWKINS_GROUP_LINK"
+              href="https://chat.whatsapp.com/K8chv2ywLR48i0AVyNd3uH"
               target="_blank"
               rel="noopener noreferrer"
               className="lab-reg-button lab-reg-button-whatsapp"

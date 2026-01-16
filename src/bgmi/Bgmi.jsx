@@ -132,7 +132,7 @@ export default function Bgmi() {
           </a>
 
           <a
-            href="https://chat.whatsapp.com/YOUR_BGMI_GROUP_LINK"
+            href="https://chat.whatsapp.com/Iwqv2CWrrn2DjWKLq8sSqk"
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp-btn font-courier"

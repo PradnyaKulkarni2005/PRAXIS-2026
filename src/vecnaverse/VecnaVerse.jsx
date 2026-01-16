@@ -128,7 +128,7 @@ export default function VecnaVerse() {
 
       {/* WHATSAPP GROUP */}
       <a
-        href="https://chat.whatsapp.com/YOUR_VECNAVERSE_GROUP_LINK"
+        href="https://chat.whatsapp.com/I7Qo1D9hdZoIZpOe9TXr7E"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-btn font-courier"

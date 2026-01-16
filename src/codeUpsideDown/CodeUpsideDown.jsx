@@ -148,7 +148,7 @@ export default function CodeUpsideDown() {
 
       {/* WHATSAPP GROUP */}
       <a
-        href="https://chat.whatsapp.com/YOUR_CODE_UPSIDE_DOWN_GROUP_LINK"
+        href="https://chat.whatsapp.com/Hue7VSO8DvgAOWUWE2Go0q"
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-btn font-courier"

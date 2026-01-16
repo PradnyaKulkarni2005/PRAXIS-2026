@@ -151,7 +151,7 @@ export default function Mindscape() {
           </a>
 
           <a
-            href="https://chat.whatsapp.com/YOUR_MINDSCAPE_GROUP_LINK"
+            href="https://chat.whatsapp.com/Jrd2CK7Jrgm5dtySQ9RQnq"
             target="_blank"
             rel="noopener noreferrer"
             className="whatsapp-btn font-courier"
