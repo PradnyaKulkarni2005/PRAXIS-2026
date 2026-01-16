@@ -216,6 +216,16 @@ export default function Hawkins() {
               <div className="lab-reg-button-label">DOWNLOAD</div>
               <div className="lab-reg-button-sub">RULEBOOK</div>
             </a>
+
+            <a
+              href="https://chat.whatsapp.com/YOUR_ESCAPE_HAWKINS_GROUP_LINK"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="lab-reg-button lab-reg-button-whatsapp"
+            >
+              <div className="lab-reg-button-label">JOIN</div>
+              <div className="lab-reg-button-sub">WHATSAPP GROUP</div>
+            </a>
           </div>
           <div className="lab-footer-note">
             <em>This report is classified. Unauthorized access is prohibited.</em>

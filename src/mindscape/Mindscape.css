@@ -127,6 +127,48 @@ a {
   font-size: 1.2rem;
 }
 
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, #dc2626 0%, #b11226 100%);
+  color: white;
+  font-size: 1.1rem;
+  border: 1px solid rgba(220, 38, 38, 0.5);
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(220, 38, 38, 0.4), 0 0 6px rgba(177, 18, 38, 0.3);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border-radius: 4px;
+  max-width: 300px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsapp-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.whatsapp-btn:hover::before {
+  left: 100%;
+}
+
+.whatsapp-btn:hover {
+  background: linear-gradient(135deg, #b11226 0%, #dc2626 100%);
+  box-shadow: 0 0 25px rgba(220, 38, 38, 0.6), 0 0 10px rgba(177, 18, 38, 0.4);
+  transform: translateY(-2px);
+}
+
 .intro-overlay {
   position: fixed;
   inset: 0;
