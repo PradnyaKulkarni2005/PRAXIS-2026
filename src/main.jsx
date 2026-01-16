@@ -4,6 +4,8 @@ import './index.css'
 import { BrowserRouter } from "react-router-dom";
 import App from './App.jsx'
 import { AudioProvider } from './context/AudioContext'
+import '@google/model-viewer';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
