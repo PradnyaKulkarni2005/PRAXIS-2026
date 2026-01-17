@@ -198,7 +198,7 @@ export default function Hawkins() {
             </a>
 
             <a
-              href="https://forms.gle/Y3QAwyXbjC6xoRzFA"
+              href="https://forms.gle/wJryyor81MBzcdjZA"
               target="_blank"
               rel="noopener noreferrer"
               className="lab-reg-button"
