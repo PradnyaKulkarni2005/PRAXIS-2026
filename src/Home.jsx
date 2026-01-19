@@ -31,20 +31,19 @@ export default function Home() {
     {
       id: 2,
       name: "CODE FROM THE UPSIDE DOWN",
-      alias: "Technical Challenge",
+      alias: "ITSA presents",
       season: "Season 2",
       image:
         "https://res.cloudinary.com/dyricwenw/image/upload/v1768400507/Stranger_Things_rawisw.jpg",
       description:
-        "A technical event combining Web Development and DSA. Navigate through rounds testing your knowledge, decision-making, and implementation skills.",
+        "A thrilling hunt event with elimination quizzes, strategic auctions, and an immersive hunt challenge. Test your logic, reasoning, and strategic thinking to emerge victorious.",
       threatLevel: 4,
       victims: 0,
       episodes: 3,
       abilities: [
-        "DSA Fundamentals",
-        "Web Development",
-        "Tech Auction",
-        "Implementation",
+        "Brain Boot",
+        "Auction Arena",
+        "Mindscape Hunt",
       ],
       redirect: "/code-upside-down",
     },
