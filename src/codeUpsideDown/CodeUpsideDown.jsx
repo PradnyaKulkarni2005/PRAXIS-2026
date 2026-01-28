@@ -22,9 +22,9 @@ export default function CodeUpsideDown() {
           </h1>
         </div>
         <p className="font-courier description">
-          A technical event combining Web Development and Data Structures & Algorithms.
+          A thrilling hunt event with elimination quizzes, strategic auctions, and an immersive hunt challenge.
           <br />
-          Navigate through rounds that test your knowledge, decision-making, and implementation skills.
+          Test your logic, reasoning, and strategic thinking to emerge victorious.
         </p>
       </header>
 
@@ -33,10 +33,10 @@ export default function CodeUpsideDown() {
         <h2>About the Event</h2>
         <div className="about-card">
           <p>
-            Code From the Upside Down is a technical event that combines Web Development 
-            and Data Structures & Algorithms (DSA). Participants go through multiple rounds 
-            that test their DSA knowledge, decision-making, and web development skills, 
-            ending with a hands-on website building challenge.
+            Code From the Upside Down is an exciting event that combines logic, strategy, and adventure. 
+            Participants go through multiple rounds starting with an elimination quiz, followed by a 
+            strategic auction where teams bid for powers and sabotages, culminating in an immersive hunt 
+            where teams must collect fragments and solve the final puzzle to win.
           </p>
         </div>
       </section>
@@ -50,13 +50,16 @@ export default function CodeUpsideDown() {
             <span className="round-number">01</span>
             <span className="round-type">ELIMINATION</span>
           </div>
-          <h3>Round 1 – Fast DSA Quiz</h3>
+          <h3>Round 1 – Brain Boot</h3>
           <ul className="round-details">
-            <li>Rapid-fire quiz based on DSA fundamentals</li>
-            <li>Topics include arrays, stacks, queues, searching, sorting, and complexity</li>
-            <li>MCQs and short logic-based questions</li>
-            <li>Time-bound elimination round</li>
-            <li className="highlight">Top teams qualify for Round 2</li>
+            <li>Teams participate in an elimination quiz</li>
+            <li>Total of 30 questions, divided into:</li>
+            <li className="sub-item">• Math-based logic</li>
+            <li className="sub-item">• Analytical reasoning</li>
+            <li className="sub-item">• Stranger Things–themed questions</li>
+            <li>Scores are evaluated at the end of the round</li>
+            <li className="highlight">Only the top 6 teams qualify for the next round</li>
+            <li>All other teams are eliminated</li>
           </ul>
         </div>
 
@@ -65,35 +68,36 @@ export default function CodeUpsideDown() {
             <span className="round-number">02</span>
             <span className="round-type">AUCTION</span>
           </div>
-          <h3>Round 2 – Tech & Logic Auction</h3>
+          <h3>Round 2 – Auction Arena</h3>
           <ul className="round-details">
-            <li>Teams receive virtual points + some fix points at the start based on Round 1 performance</li>
-            <li className="sub-list-header">Auction items include:</li>
-            <li className="sub-item">• Web Development Tech Stacks</li>
-            <li className="sub-item">• Development Tools & Libraries</li>
-            <li className="sub-item">• DSA Concepts to be used in final build</li>
-            <li className="sub-item">• Sabotages / Constraints</li>
-            <li className="highlight">Auction outcomes define the constraints and advantages for Round 3</li>
+            <li>Qualified teams enter a live auction</li>
+            <li className="sub-list-header">Starting points are assigned based on Round One ranks:</li>
+            <li className="sub-item">• 1st place: 1500 points</li>
+            <li className="sub-item">• 2nd place: 1300 points</li>
+            <li className="sub-item">• 3rd place: 1200 points</li>
+            <li className="sub-item">• Remaining teams: 1000 points</li>
+            <li className="sub-list-header">Teams bid their points to purchase:</li>
+            <li className="sub-item">• 5 special powers</li>
+            <li className="sub-item">• 6 sabotages</li>
+            <li>Powers give advantages during the hunt</li>
+            <li>Sabotages are used to delay or disrupt other teams</li>
+            <li>All purchased items carry forward into Round Three</li>
+            <li className="highlight">Strategic bidding directly affects performance in the final round</li>
           </ul>
         </div>
 
         <div className="round-card">
           <div className="round-header">
             <span className="round-number">03</span>
-            <span className="round-type">IMPLEMENTATION</span>
+            <span className="round-type">HUNT</span>
           </div>
-          <h3>Round 3 – Implementation Round</h3>
+          <h3>Round 3 – Mindscape The Hunt</h3>
           <ul className="round-details">
-            <li className="sub-list-header">Teams build a blog-based web application</li>
-            <li className="sub-list-header">Website must include:</li>
-            <li className="sub-item">• Explanation of the DSA concept won in auction</li>
-            <li className="sub-item">• Scratch MIT implementation to visually demonstrate the algorithm</li>
-            <li className="sub-item">• Scratch project must be embedded or linked within the website</li>
-            <li className="sub-list-header">Evaluation based on:</li>
-            <li className="sub-item">• Correct DSA logic</li>
-            <li className="sub-item">• Web UI/UX and information included in it</li>
-            <li className="sub-item">• Use of auctioned tech stack and tools</li>
-            <li className="sub-item">• Completion within given time</li>
+            <li>Teams collect six envelopes throughout the hunt</li>
+            <li>Each envelope contains a fragment of a larger image</li>
+            <li>All teams converge at a final common location</li>
+            <li>Teams must unlock a system and assemble all fragments correctly</li>
+            <li className="highlight">The first team to complete the image and unlock the system wins the event</li>
           </ul>
         </div>
       </section>
